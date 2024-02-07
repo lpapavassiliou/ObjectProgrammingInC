@@ -1,0 +1,41 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+      {
+        "label": "build",
+        "type": "shell",
+        "command": "gcc main.c pippo.c -o build",
+        "group": {
+          "kind": "build",
+        },
+        "presentation": {
+          "reveal": "always"
+        },
+        "problemMatcher": {
+          "owner": "cpp",
+          "fileLocation": ["relative", "${workspaceFolder}"],
+          "pattern": {
+            "regexp": "^(.*):(\\d+):(\\d+):\\s+(warning|error):\\s+(.*)$",
+            "file": 1,
+            "line": 2,
+            "column": 3,
+            "severity": 4,
+            "message": 5
+          }
+        }
+      },
+      {
+        "label": "build&run",
+        "type": "shell",
+        "command": "./build",
+        "dependsOn": ["build"],
+        "presentation": {
+          "reveal": "always"
+        },
+        "group": {
+          "kind": "build",
+        },
+      }
+    ]
+  }
+  
